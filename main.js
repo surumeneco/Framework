@@ -1,46 +1,40 @@
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    グローバルデータ
+    画面設定
 
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+const scale = {
+  mode: Phaser.Scale.FIT,
+  autoCenter: Phaser.Scale.CENTER_BOTH,
+  width: SCREEN_W,
+  height: SCREEN_H,
+};
+
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 
 
 
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    中央処理
+    ゲーム設定
 
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-phina.main(function ()
-{
-  var app = GameApp({
-    //画面サイズ設定
-    width: SCREEN_W,
-    height: SCREEN_H,
-    fit: true,
 
-    //アセット読み込み
-    // assets: ASSETS,
+let config = {
+  type: Phaser.AUTO,
+  scale: scale,
+  parent: 'canvas',
+  scene: [
+    Title
+  ]
+};
 
-    //fps設定
-    fps: 60,
-
-    // startLabel: "タイトル",
-    startLabel: "ホーム",
-    scenes:
-      [
-        {
-          label: "タイトル",
-          className: "Title_scene",
-        },
-        {
-          label: "ホーム",
-          className: "Home_scene",
-        }
-      ]
-  });
-  app.run();
-});
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+
+
+//ゲーム起動
+let game = new Phaser.Game(config);
+window.addEventListener('resize', () => game.scale.refresh())
 

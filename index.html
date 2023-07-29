@@ -10,25 +10,24 @@
   <title></title>
 
   <!-- フレームワーク読み込み -->
-  <script src="./framework/colors_HEX.js"></script>
-  <script src="./framework/colors_String.js"></script>
-  <script src="./framework/phina.js"></script>
+  <script src="./loading/framework_loading.js"></script>
 
-  <!-- ロード系読み込み -->
+  <!-- グローバルデータ読み込み -->
   <script src="./global_initializer.js"></script>
+  <script>
+    document.title = game_title;
+  </script>
 
-  <!-- オブジェクト読み込み -->
-  <script src="./loading/object_loading.js"></script>
+  <!-- ゲームデータ読み込み -->
   <script src="./loading/class_loading.js"></script>
-
-  <!-- シーン読み込み -->
+  <script src="./loading/data_loading.js"></script>
   <script src="./loading/scene_loading.js"></script>
 
   <!-- メインプログラム読み込み -->
   <script src="./main.js"></script>
 </head>
 
-<body bgcolor="#3F3F3F">
+<body bgcolor="#3F3F3F" style="margin: 0; padding: 0;">
 </body>
 
 </html>
